@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 源码中以对象形式导出，并且命名必须与plugin同名（矫情）
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
   entry:
     // entry1: './entry/entry1.js',
@@ -42,16 +43,22 @@ module.exports = {
     port: 9000,
   },
   plugins: [
-    new HtmlPlugin({
-      template: './src/index.html',
-      // template: path.resolve(__dirname, '/src/index.html'),
-      // inject: "body",
-      filename: 'index.[contenthash:8].html'
-    }),
+    // new HtmlPlugin({
+    //   template: './src/index.html',
+    //   // template: path.resolve(__dirname, '/src/index.html'),
+    //   // inject: "body",
+    //   filename: 'index.[contenthash:8].html'
+    // }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].css'
-    })
+    }),
+    new BundleAnalyzerPlugin(
+      //   {
+      //   analyzerMode: 'disabled',  // 不启动展示打包报告的http服务器
+      //   generateStatsFile: true, // 是否生成stats.json文件
+      // }
+    )
   ],
   module: {
     rules: [

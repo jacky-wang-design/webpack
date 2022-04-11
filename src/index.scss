@@ -7,4 +7,10 @@ body {
     text-align: center;
     line-height: 300px;
   }
+  #imgBox{
+    height: 400px;
+    width: 400px;
+    background: url('./jacky.jpg');
+    background-size: contain;
+  }
 }

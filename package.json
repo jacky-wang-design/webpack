@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --open",
-    "build": "webpack --config webpack.config.js"
+    "dev": "webpack serve --open ",
+    "build": "webpack --config webpack.config.js",
+    "analyzer": "webpack --config webpack.dev.js --progress"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
@@ -16,6 +17,7 @@
     "postcss-loader": "^6.2.1",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^4.8.1"
   }
 }
